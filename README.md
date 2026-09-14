@@ -1,4 +1,4 @@
-# Oracle-inflation
+# oracle-inflation
 
 Code and result tables for:
 
@@ -32,6 +32,12 @@ Oracle score against candidate-set size K:
 
 Five candidates are enough for a signal-free estimator to beat the
 constant predictor. Ten recover 96% of the inflation available at 168.
+
+![Oracle inflation against candidate-set size](figures/fig_candidates.png)
+
+*Nothing about the data changes along the horizontal axis. Only the
+number of candidates searched changes, and the oracle drops below the
+constant predictor at K = 5.*
 
 ## Requirements
 
@@ -85,6 +91,16 @@ check scripts are independent and can be run at any point.
 | `check_roi_pulse.py` | does any facial region track heart rate? (no: \|r\| ≤ 0.20 across six regions) |
 | `check_lag_sweep.py` | does a delayed thermal response recover the correlation? (no, at any lag from −30 to +30 s) |
 
+![Thermal heart rate against the reference](figures/fig1_scatter.png)
+
+*No facial region tracks heart rate. Estimates concentrate at 45–55 bpm
+regardless of a reference spanning 53–97 bpm.*
+
+![Real signals against permutation controls](figures/fig2_controls.png)
+
+*Under oracle selection, a thermal signal taken from a different subject
+scores as well as the correct one.*
+
 ### Comparison against prior work
 
 | Script | What it does |
@@ -95,6 +111,19 @@ check scripts are independent and can be run at any point.
 `stage4_candidate_count.py` reads the table written by
 `stage2_estimates.py` and needs no video access, so the headline
 inflation result can be reproduced in minutes once that table exists.
+
+## Repository layout
+
+```
+figures/     the three figures reproduced above
+paths.py     shared path configuration, edit before running
+stage*.py    the pipeline, run in numerical order
+check_*.py   independent verification scripts
+omit_*.py    comparison against prior work
+```
+
+Per-recording diagnostic plots are not included; the check scripts
+regenerate them.
 
 ## Notes on two of the scripts
 
