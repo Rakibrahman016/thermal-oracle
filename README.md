@@ -39,6 +39,19 @@ constant predictor. Ten recover 96% of the inflation available at 168.
 number of candidates searched changes, and the oracle drops below the
 constant predictor at K = 5.*
 
+## Reproducing the headline result without the dataset
+
+The inflation measurement needs only the per-window estimate table, not
+the video. Point `BASE` at the directory holding `stage2/stage2_estimates.csv`
+and run:
+
+```
+python pipeline/stage4_candidate_count.py
+```
+
+This regenerates the candidate-count table, the split-half check and the
+figure above in a few minutes.
+
 ## Requirements
 
 Python 3.10 or newer, with numpy, scipy, pandas and matplotlib.
@@ -115,12 +128,16 @@ inflation result can be reproduced in minutes once that table exists.
 ## Repository layout
 
 ```
-figures/     the three figures reproduced above
-paths.py     shared path configuration, edit before running
-stage*.py    the pipeline, run in numerical order
-check_*.py   independent verification scripts
-omit_*.py    comparison against prior work
+figures/            the three figures reproduced above
+pipeline/           stage0 to stage4, run in numerical order
+checks/             independent verification scripts
+OMIT_comparison/    comparison against prior work
 ```
+
+Run the pipeline scripts from inside `pipeline/`. `stage2b_controls.py`
+imports its filters, estimators and region definitions directly from
+`stage2_estimates.py`, so control processing is identical to the main
+path by construction rather than by assertion.
 
 Per-recording diagnostic plots are not included; the check scripts
 regenerate them.
