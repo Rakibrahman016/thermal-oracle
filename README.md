@@ -1,4 +1,4 @@
-# oracle-inflation
+# Oracle-inflation
 
 Code and result tables for:
 
