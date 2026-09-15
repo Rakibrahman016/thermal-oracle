@@ -4,7 +4,7 @@ Code and result tables for:
 
 **How Much Does Oracle Selection Inflate? Realistic Search Sizes and a
 Perfusion-Based Thermal Cardiac Null**
-Submitted to ICASSP 2027.
+
 
 Two things are measured here. First, how much a ground-truth oracle bound
 is inflated by the act of selecting among candidate configurations, as a
