@@ -147,7 +147,7 @@ regenerate them.
 **`omit_hr_ibvp.py`** is a reimplementation from the method description
 in Álvarez Casado et al. (arXiv:2602.12361), not the authors' own code:
 the released repository contains the region front end but not the
-estimator. It is verified on synthetic signals — it recovers a 72 bpm
+estimator. It is verified on synthetic signals; it recovers a 72 bpm
 pulse buried under noise and drift to within 0.02 bpm, and returns
 scattered values when no pulse is present.
 
@@ -156,7 +156,7 @@ PPG, because iBVP ships no respiration sensor. Note that the released
 reference is high-pass filtered: on a representative recording, 99.36% of
 its power lies in the cardiac band and 0.00% in the respiratory band, so
 methods based on slow baseline wander cannot work on this dataset. Two
-derivations that survive that filtering are used instead — amplitude
+derivations that survive that filtering are used instead: amplitude
 modulation of the pulse peaks, and respiratory sinus arrhythmia from the
 interbeat-interval series. A recording is retained only where the two
 agree to within 3 rpm, which holds for 20 of 96.
@@ -172,7 +172,7 @@ runs whose validation loss sat at 1.0 from the first epoch in all eight
 folds; under a negative-Pearson objective that denotes zero correlation
 rather than divergence, but the original training environment could not
 be reproduced to test lower learning rates directly. No conclusion in the
-paper depends on it — the analysis is otherwise model-free.
+paper depends on it: the analysis is otherwise model-free.
 
 ## Citation
 
